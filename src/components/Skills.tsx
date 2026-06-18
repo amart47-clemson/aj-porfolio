@@ -1,0 +1,65 @@
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { skillIconCategories, type SkillIcon } from "@/lib/data";
+
+function SkillIconCard({ skill }: { skill: SkillIcon }) {
+  return (
+    <div className="group flex flex-col items-center gap-3 rounded-xl border border-white/8 bg-white/[0.02] p-4 transition-all duration-300 hover:border-orange-500/25 hover:bg-white/[0.04] hover:shadow-[0_0_24px_rgba(249,115,22,0.08)]">
+      {skill.iconClass ? (
+        <i
+          className={`${skill.iconClass} text-[56px] leading-none transition-transform duration-300 group-hover:scale-110`}
+          aria-hidden="true"
+        />
+      ) : (
+        <div
+          className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-sm font-bold text-orange-300 transition-transform duration-300 group-hover:scale-110"
+          aria-hidden="true"
+        >
+          {skill.fallback ?? skill.name.slice(0, 2).toUpperCase()}
+        </div>
+      )}
+      <span className="text-center text-xs font-medium text-zinc-400 transition-colors group-hover:text-zinc-300">
+        {skill.name}
+      </span>
+    </div>
+  );
+}
+
+export function Skills() {
+  return (
+    <section id="skills" className="relative px-6 py-24 lg:px-8 lg:py-32">
+      <div className="mx-auto max-w-6xl">
+        <AnimateOnScroll>
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-orange-400">
+              Toolkit
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Skills & Tech Stack
+            </h2>
+            <p className="mt-4 text-zinc-400">
+              Technologies and tools I use across development, cloud, and
+              security work.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        <div className="space-y-10">
+          {skillIconCategories.map((group, index) => (
+            <AnimateOnScroll key={group.category} delay={index * 60}>
+              <div>
+                <h3 className="mb-5 text-sm font-semibold uppercase tracking-wide text-orange-300">
+                  {group.category}
+                </h3>
+                <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7">
+                  {group.skills.map((skill) => (
+                    <SkillIconCard key={skill.name} skill={skill} />
+                  ))}
+                </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
