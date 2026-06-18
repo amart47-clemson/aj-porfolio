@@ -149,6 +149,20 @@ export function ProjectCarousel() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3 border-t border-white/8 pt-6">
+            {project.live && (
+              <a
+                href={project.live}
+                target={project.live.startsWith("#") ? undefined : "_blank"}
+                rel={
+                  project.live.startsWith("#")
+                    ? undefined
+                    : "noopener noreferrer"
+                }
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-6 py-2.5 text-sm font-semibold text-white shadow-[0_0_24px_rgba(249,115,22,0.2)] transition-all hover:shadow-[0_0_32px_rgba(249,115,22,0.3)]"
+              >
+                Live Demo
+              </a>
+            )}
             <a
               href={project.repo}
               target="_blank"

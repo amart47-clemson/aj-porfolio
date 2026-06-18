@@ -18,7 +18,7 @@ export const typewriterRoles = [
 ];
 
 export const heroStats = [
-  { value: "3+", label: "Projects Deployed" },
+  { value: "5+", label: "Projects Deployed" },
   { value: "2", label: "Summers Industry Experience" },
   { value: "AWS", label: "Certified" },
   { value: "3.42", label: "GPA" },
@@ -43,6 +43,7 @@ export type Project = {
   description: string;
   tags: string[];
   repo: string;
+  live?: string;
 };
 
 export const projects: Project[] = [
@@ -97,6 +98,14 @@ export const projects: Project[] = [
       "Render",
     ],
     repo: "https://github.com/amart47-clemson/Personal/tree/main/collab-editor",
+  },
+  {
+    title: "Personal Portfolio Website",
+    description:
+      "Designed and built a personal portfolio from scratch with a futuristic professional aesthetic. Features a typewriter hero animation, animated project carousel, custom orange glowing cursor, Devicon tech stack icons, AWS cert badge, and a responsive layout optimized for recruiters and hiring managers. Deployed on Render.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Render"],
+    repo: "https://github.com/amart47-clemson/aj-porfolio",
+    live: "#",
   },
 ];
 
