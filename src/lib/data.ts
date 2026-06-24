@@ -46,7 +46,6 @@ export type Project = {
   tags: string[];
   repo: string;
   live?: string;
-  accentColor?: string;
 };
 
 export const projects: Project[] = [
@@ -135,7 +134,6 @@ export const projects: Project[] = [
     ],
     repo: "https://github.com/amart47-clemson/Threat-Intelligence-Dashboard/tree/main",
     live: "https://threat-intel-api-8pvm.onrender.com",
-    accentColor: "#00d4ff",
   },
 ];
 

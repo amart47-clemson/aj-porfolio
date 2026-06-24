@@ -43,11 +43,6 @@ export function ProjectCarousel() {
   const fadeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pauseUntilRef = useRef(0);
   const project = projects[activeIndex];
-  const isCyan = project.accentColor === "#00d4ff";
-
-  const cardHoverClass = isCyan
-    ? "hover:border-[#00d4ff]/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(0,212,255,0.12),0_0_0_1px_rgba(0,212,255,0.15)]"
-    : "hover:border-orange-500/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(249,115,22,0.12),0_0_0_1px_rgba(249,115,22,0.15)]";
 
   const goTo = useCallback((index: number) => {
     const nextIndex = (index + projects.length) % projects.length;
@@ -123,34 +118,22 @@ export function ProjectCarousel() {
         <article
           className={`group mx-auto flex min-h-[420px] w-full max-w-3xl flex-col rounded-2xl border border-white/8 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out sm:min-h-[400px] sm:p-10 ${
             visible ? "opacity-100" : "opacity-0"
-          } hover:-translate-y-1.5 ${cardHoverClass}`}
+          } hover:-translate-y-1.5 hover:border-orange-500/30 hover:bg-white/[0.06] hover:shadow-[0_12px_40px_rgba(249,115,22,0.12),0_0_0_1px_rgba(249,115,22,0.15)]`}
           style={{
             transitionProperty:
               "opacity, transform, box-shadow, border-color, background-color",
           }}
         >
-          <div
-            className={`mb-5 h-px w-16 bg-gradient-to-r transition-all duration-300 group-hover:w-24 ${
-              isCyan ? "from-[#00d4ff] to-cyan-300" : "from-orange-400 to-amber-500"
-            }`}
-          />
+          <div className="mb-5 h-px w-16 bg-gradient-to-r from-orange-400 to-amber-500 transition-all duration-300 group-hover:w-24" />
 
-          <p
-            className={`text-sm font-medium uppercase tracking-widest ${
-              isCyan ? "text-[#00d4ff]/80" : "text-orange-400/80"
-            }`}
-          >
+          <p className="text-sm font-medium uppercase tracking-widest text-orange-400/80">
             Featured Project
           </p>
           <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
             {project.title}
           </h3>
           {project.tagline && (
-            <p
-              className={`mt-1 text-sm font-medium ${
-                isCyan ? "text-[#00d4ff]/90" : "text-orange-300/90"
-              }`}
-            >
+            <p className="mt-1 text-sm font-medium text-orange-300/90">
               {project.tagline}
             </p>
           )}
@@ -159,9 +142,7 @@ export function ProjectCarousel() {
             {project.tags.map((tag) => (
               <li
                 key={tag}
-                className={`rounded-full border bg-white/[0.04] px-3 py-1 text-xs text-zinc-300 ${
-                  isCyan ? "border-[#00d4ff]/20" : "border-white/8"
-                }`}
+                className="rounded-full border border-white/8 bg-white/[0.04] px-3 py-1 text-xs text-zinc-300"
               >
                 {tag}
               </li>
@@ -183,11 +164,7 @@ export function ProjectCarousel() {
                   key={item}
                   className="flex gap-2.5 text-sm leading-relaxed text-zinc-400"
                 >
-                  <span
-                    className={`mt-2 h-1 w-1 shrink-0 rounded-full ${
-                      isCyan ? "bg-[#00d4ff]/80" : "bg-orange-400/80"
-                    }`}
-                  />
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-orange-400/80" />
                   {item}
                 </li>
               ))}
@@ -204,11 +181,7 @@ export function ProjectCarousel() {
                     ? undefined
                     : "noopener noreferrer"
                 }
-                className={`inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-all ${
-                  isCyan
-                    ? "bg-gradient-to-r from-[#00d4ff] to-cyan-400 shadow-[0_0_24px_rgba(0,212,255,0.2)] hover:shadow-[0_0_32px_rgba(0,212,255,0.3)]"
-                    : "bg-gradient-to-r from-orange-500 to-amber-500 shadow-[0_0_24px_rgba(249,115,22,0.2)] hover:shadow-[0_0_32px_rgba(249,115,22,0.3)]"
-                }`}
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-6 py-2.5 text-sm font-semibold text-white shadow-[0_0_24px_rgba(249,115,22,0.2)] transition-all hover:shadow-[0_0_32px_rgba(249,115,22,0.3)]"
               >
                 Live Demo
               </a>
@@ -217,11 +190,7 @@ export function ProjectCarousel() {
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-2.5 text-sm font-semibold text-zinc-300 transition-colors hover:text-white ${
-                isCyan
-                  ? "hover:border-[#00d4ff]/30"
-                  : "hover:border-orange-500/30"
-              }`}
+              className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-2.5 text-sm font-semibold text-zinc-300 transition-colors hover:border-orange-500/30 hover:text-white"
             >
               View Code
             </a>
