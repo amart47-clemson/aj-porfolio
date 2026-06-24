@@ -40,10 +40,13 @@ export const navLinks = [
 
 export type Project = {
   title: string;
+  tagline?: string;
   description: string;
+  highlights?: string[];
   tags: string[];
   repo: string;
   live?: string;
+  accentColor?: string;
 };
 
 export const projects: Project[] = [
@@ -105,6 +108,34 @@ export const projects: Project[] = [
       "Designed and built a personal portfolio from scratch with a futuristic professional aesthetic. Features a typewriter hero animation, animated project carousel, custom orange glowing cursor, Devicon tech stack icons, AWS cert badge, and a responsive layout optimized for recruiters and hiring managers. Deployed on Render.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Render"],
     repo: "https://github.com/amart47-clemson/aj-porfolio",
+  },
+  {
+    title: "Threat Intelligence Dashboard",
+    tagline: "Real-time cybersecurity threat monitoring platform",
+    description:
+      "Built a full-stack threat intelligence platform that ingests live IOC data from AlienVault OTX and AbuseIPDB, enriches indicators with geolocation and confidence scoring, and visualizes threats on an interactive world map. Features an automated ingestion pipeline, custom threat scoring algorithm, and an analyst-style dashboard with live feed ticker, donut chart breakdowns, and animated severity indicators.",
+    highlights: [
+      "Automated threat feed ingestion from OTX and AbuseIPDB on a 30/60 minute scheduler",
+      "Custom IOC scoring algorithm with severity classification (Low / Medium / High / Critical)",
+      "Interactive Leaflet world map with severity-colored glowing markers",
+      "Manual IOC lookup with live API enrichment and cache detection",
+      "CSV export, debounced search, pagination, and expandable score history charts",
+      "Deployed and live on Render with PostgreSQL backend",
+    ],
+    tags: [
+      "Python",
+      "Flask",
+      "PostgreSQL",
+      "React",
+      "Leaflet.js",
+      "Recharts",
+      "APScheduler",
+      "Docker",
+      "Render",
+    ],
+    repo: "https://github.com/amart47-clemson/Threat-Intelligence-Dashboard/tree/main",
+    live: "https://threat-intel-api-8pvm.onrender.com",
+    accentColor: "#00d4ff",
   },
 ];
 
