@@ -142,7 +142,11 @@ export function ProjectCarousel() {
             {project.tags.map((tag) => (
               <li
                 key={tag}
-                className="rounded-full border border-white/8 bg-white/[0.04] px-3 py-1 text-xs text-zinc-300"
+                className={`rounded-full border bg-white/[0.04] px-3 py-1 text-xs text-zinc-300 ${
+                  project.title === "Threat Intelligence Dashboard"
+                    ? "border-orange-500/25"
+                    : "border-white/8"
+                }`}
               >
                 {tag}
               </li>
