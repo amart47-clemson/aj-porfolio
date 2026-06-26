@@ -224,9 +224,18 @@ export const skillIconCategories: SkillIconCategory[] = [
       { name: "Postman", fallback: "Pm" },
       { name: "Bash", iconClass: "devicon-bash-plain colored" },
       { name: "Vite", iconClass: "devicon-vitejs-plain colored" },
-      { name: "Cursor", textOnly: true },
-      { name: "Claude", textOnly: true },
-      { name: "ChatGPT", textOnly: true },
+      {
+        name: "Cursor",
+        imageUrl: "https://cdn.worldvectorlogo.com/logos/cursor-2.svg",
+      },
+      {
+        name: "Claude",
+        imageUrl: "https://cdn.worldvectorlogo.com/logos/claude-ai-icon.svg",
+      },
+      {
+        name: "ChatGPT",
+        imageUrl: "https://cdn.worldvectorlogo.com/logos/chatgpt-6.svg",
+      },
     ],
   },
   {
