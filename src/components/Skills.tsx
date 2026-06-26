@@ -1,6 +1,49 @@
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { skillIconCategories, type SkillIcon } from "@/lib/data";
 
+function SkillIconVisual({ skill }: { skill: SkillIcon }) {
+  if (skill.imageUrl) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={skill.imageUrl}
+        alt=""
+        className="h-14 w-14 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
+        aria-hidden="true"
+      />
+    );
+  }
+
+  if (skill.iconClass) {
+    return (
+      <i
+        className={`${skill.iconClass} text-[56px] leading-none transition-transform duration-300 group-hover:scale-110`}
+        aria-hidden="true"
+      />
+    );
+  }
+
+  if (skill.emoji) {
+    return (
+      <span
+        className="flex h-14 w-14 items-center justify-center text-4xl leading-none text-orange-400 transition-transform duration-300 group-hover:scale-110"
+        aria-hidden="true"
+      >
+        {skill.emoji}
+      </span>
+    );
+  }
+
+  return (
+    <div
+      className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-sm font-bold text-orange-300 transition-transform duration-300 group-hover:scale-110"
+      aria-hidden="true"
+    >
+      {skill.fallback ?? skill.name.slice(0, 2).toUpperCase()}
+    </div>
+  );
+}
+
 function SkillIconCard({ skill }: { skill: SkillIcon }) {
   if (skill.textOnly) {
     return (
@@ -13,21 +56,9 @@ function SkillIconCard({ skill }: { skill: SkillIcon }) {
   }
 
   return (
-    <div className="group flex flex-col items-center gap-3 rounded-xl border border-white/8 bg-white/[0.02] p-4 transition-all duration-300 hover:border-orange-500/25 hover:bg-white/[0.04] hover:shadow-[0_0_24px_rgba(249,115,22,0.08)]">
-      {skill.iconClass ? (
-        <i
-          className={`${skill.iconClass} text-[56px] leading-none transition-transform duration-300 group-hover:scale-110`}
-          aria-hidden="true"
-        />
-      ) : (
-        <div
-          className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-sm font-bold text-orange-300 transition-transform duration-300 group-hover:scale-110"
-          aria-hidden="true"
-        >
-          {skill.fallback ?? skill.name.slice(0, 2).toUpperCase()}
-        </div>
-      )}
-      <span className="text-center text-xs font-medium text-zinc-400 transition-colors group-hover:text-zinc-300">
+    <div className="group flex min-h-[120px] flex-col items-center justify-between gap-3 rounded-xl border border-white/8 bg-white/[0.02] p-4 transition-all duration-300 hover:border-orange-500/25 hover:bg-white/[0.04] hover:shadow-[0_0_24px_rgba(249,115,22,0.08)]">
+      <SkillIconVisual skill={skill} />
+      <span className="text-center text-xs font-medium leading-snug text-zinc-400 transition-colors group-hover:text-zinc-300">
         {skill.name}
       </span>
     </div>

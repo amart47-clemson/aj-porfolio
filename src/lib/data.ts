@@ -168,6 +168,8 @@ export const projects: Project[] = [
 export type SkillIcon = {
   name: string;
   iconClass?: string;
+  imageUrl?: string;
+  emoji?: string;
   fallback?: string;
   textOnly?: boolean;
 };
@@ -195,12 +197,15 @@ export const skillIconCategories: SkillIconCategory[] = [
     skills: [
       {
         name: "OpenAI API (GPT-4o-mini, embeddings)",
-        iconClass: "devicon-openai-plain",
+        imageUrl: "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
       },
-      { name: "RAG pipelines", textOnly: true },
-      { name: "pgvector", textOnly: true },
-      { name: "LLM prompt engineering", textOnly: true },
-      { name: "Intent classification", textOnly: true },
+      { name: "RAG pipelines", emoji: "🧠" },
+      {
+        name: "pgvector",
+        iconClass: "devicon-postgresql-plain colored",
+      },
+      { name: "LLM prompt engineering", emoji: "⚡" },
+      { name: "Intent classification", emoji: "🎯" },
     ],
   },
   {
