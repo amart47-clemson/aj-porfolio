@@ -50,6 +50,34 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "StudyAI — AI Study Platform",
+    tagline:
+      "An AI-powered study platform that converts uploaded PDFs into summaries, flashcards, quizzes, and a RAG-powered chat assistant with natural language controls.",
+    description:
+      "Built a full-stack AI study platform where users upload any PDF or paste text and instantly get an AI-generated summary, a full flashcard deck with mastery tracking, a graded quiz with topic breakdown, and a chat assistant grounded in their document via a RAG pipeline. The chat understands natural language commands — users can say \"make the quiz harder\", \"add 10 more flashcards about chapter 2\", or \"switch to true/false format\" and the app figures out exactly what to do using an 11-intent LLM classifier with confidence thresholds.",
+    highlights: [
+      "RAG pipeline using OpenAI embeddings and pgvector cosine similarity search",
+      "11-intent LLM classifier with confidence-based clarifying fallbacks",
+      "Flashcard mastery tracking (I knew this / Still learning)",
+      "Quiz results dashboard with letter grade and topic breakdown",
+      "Dynamic content scaling based on document length",
+      "Flask backend on Render, React frontend on Vercel, PostgreSQL on Neon",
+    ],
+    tags: [
+      "Python",
+      "Flask",
+      "React",
+      "OpenAI API",
+      "PostgreSQL",
+      "pgvector",
+      "Neon",
+      "Render",
+      "Vercel",
+    ],
+    repo: "https://github.com/amart47-clemson/StudyAI",
+    live: "https://study-ai-murex-ten.vercel.app",
+  },
+  {
     title: "Battleship Radar Command",
     description:
       "Full-stack multiplayer Battleship game with a REST API backend, PostgreSQL database, and vanilla JS frontend. Features server-side move validation, SQL injection prevention, and real-time game state sync via polling. Deployed live on Render.",
@@ -141,6 +169,7 @@ export type SkillIcon = {
   name: string;
   iconClass?: string;
   fallback?: string;
+  textOnly?: boolean;
 };
 
 export type SkillIconCategory = {
@@ -162,6 +191,19 @@ export const skillIconCategories: SkillIconCategory[] = [
     ],
   },
   {
+    category: "AI & ML",
+    skills: [
+      {
+        name: "OpenAI API (GPT-4o-mini, embeddings)",
+        iconClass: "devicon-openai-plain",
+      },
+      { name: "RAG pipelines", textOnly: true },
+      { name: "pgvector", textOnly: true },
+      { name: "LLM prompt engineering", textOnly: true },
+      { name: "Intent classification", textOnly: true },
+    ],
+  },
+  {
     category: "Frameworks & Tools",
     skills: [
       { name: "Node.js", iconClass: "devicon-nodejs-plain colored" },
@@ -176,6 +218,10 @@ export const skillIconCategories: SkillIconCategory[] = [
       { name: "GitHub", iconClass: "devicon-github-original" },
       { name: "Postman", fallback: "Pm" },
       { name: "Bash", iconClass: "devicon-bash-plain colored" },
+      { name: "Vite", iconClass: "devicon-vitejs-plain colored" },
+      { name: "Cursor", textOnly: true },
+      { name: "Claude", textOnly: true },
+      { name: "ChatGPT", textOnly: true },
     ],
   },
   {

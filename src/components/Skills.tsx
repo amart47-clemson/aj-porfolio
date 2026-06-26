@@ -2,6 +2,16 @@ import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { skillIconCategories, type SkillIcon } from "@/lib/data";
 
 function SkillIconCard({ skill }: { skill: SkillIcon }) {
+  if (skill.textOnly) {
+    return (
+      <div className="flex items-center justify-center p-2">
+        <span className="rounded-full border border-orange-500/25 bg-orange-500/10 px-3 py-2 text-center text-xs font-medium leading-snug text-orange-300 transition-colors hover:border-orange-500/40 hover:bg-orange-500/15 hover:text-orange-200">
+          {skill.name}
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div className="group flex flex-col items-center gap-3 rounded-xl border border-white/8 bg-white/[0.02] p-4 transition-all duration-300 hover:border-orange-500/25 hover:bg-white/[0.04] hover:shadow-[0_0_24px_rgba(249,115,22,0.08)]">
       {skill.iconClass ? (
