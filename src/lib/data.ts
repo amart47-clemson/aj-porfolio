@@ -169,6 +169,7 @@ export type SkillIcon = {
   name: string;
   iconClass?: string;
   imageUrl?: string;
+  imageInvert?: boolean;
   emoji?: string;
   fallback?: string;
   textOnly?: boolean;
@@ -226,11 +227,13 @@ export const skillIconCategories: SkillIconCategory[] = [
       { name: "Vite", iconClass: "devicon-vitejs-plain colored" },
       {
         name: "Cursor",
-        imageUrl: "https://cdn.worldvectorlogo.com/logos/cursor-2.svg",
+        imageUrl: "/cursor.png",
+        imageInvert: true,
       },
       {
         name: "Claude",
-        imageUrl: "https://cdn.worldvectorlogo.com/logos/claude-ai-icon.svg",
+        imageUrl: "/claude.png",
+        imageInvert: false,
       },
       {
         name: "ChatGPT",

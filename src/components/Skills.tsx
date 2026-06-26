@@ -3,12 +3,16 @@ import { skillIconCategories, type SkillIcon } from "@/lib/data";
 
 function SkillIconVisual({ skill }: { skill: SkillIcon }) {
   if (skill.imageUrl) {
+    const invert = skill.imageInvert !== false;
+
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src={skill.imageUrl}
         alt=""
-        className="h-14 w-14 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
+        className={`h-14 w-14 object-contain transition-transform duration-300 group-hover:scale-110 ${
+          invert ? "brightness-0 invert" : ""
+        }`}
         aria-hidden="true"
       />
     );
