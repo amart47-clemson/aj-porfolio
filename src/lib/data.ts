@@ -161,7 +161,6 @@ export const projects: Project[] = [
       "Render",
     ],
     repo: "https://github.com/amart47-clemson/Threat-Intelligence-Dashboard/tree/main",
-    live: "https://threat-intel-frontend-q00q.onrender.com",
   },
 ];
 
